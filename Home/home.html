@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Home - Pet Bunny</title>
+    <link rel="stylesheet" href="home_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+  <div class="nav-brand">🐰 Study with <span class="bunnyName">Bunny</span></div>
+  <ul class="nav-links">
+    <li><button class="nav-button active" id="nav-home">Nhà của Pet</button></li>
+    <li><button class="nav-button" id="nav-timer">Bắt đầu học (Timer)</button></li>
+    <li><button class="nav-button" id="nav-checklist">Checklist nhiệm vụ</button></li>
+    <li><button class="nav-button" id="nav-progress">Xem tiến độ</button></li>
+    <li><button class="nav-button logout-button" id="nav-logout">Đăng xuất</button></li>
+  </ul>
+</nav>
+
+
+    <!-- BACKGROUND SHAPES -->
+    <div class="bg-shape blob-1"></div>
+    <div class="bg-shape blob-2"></div>
+
+    <!-- HOME CONTENT -->
+    <div class="home-wrapper">
+        <div class="pet-home-container">
+
+            <header class="pet-header">
+                <h1 class="welcome-title">
+                    Chào mừng đến với Nhà của <span class="bunnyName">Bunny</span>
+                </h1>
+            </header>
+
+            <section class="pet-main-area">
+
+                <!-- INFO -->
+                <div class="pet-info-card">
+              
+                    <p>🥕Carrot: <span id="carrotCount">0</span></p>
+
+
+                    <div class="status-bar">
+                        <label>Sức khỏe</label>
+                        <progress value="0" max="100"></progress>
+                    </div>
+
+                    <div class="status-bar">
+                        <label>Hạnh phúc</label>
+                        <progress value="0" max="100"></progress>
+                    </div>
+
+                    <div class="status-bar">
+                        <label>Kinh nghiệm (EXP)</label>
+                        <progress value="0" max="100"></progress>
+                    </div>
+
+                   <div class="pet-actions">
+    <button class="action-btn" onclick="useCarrot('feed')">Cho ăn</button>
+    <button class="action-btn" onclick="useCarrot('play')">Chơi đùa</button>
+    <button class="action-btn" onclick="useCarrot('clean')">Dọn dẹp</button>
+   <button class="action-btn rename" onclick="openRenameModal()">
+  Đổi tên Bunny
+</button>
+
+</div>
+
+
+
+                </div>
+                <!-- IMAGE -->
+                <div class="pet-image-display">
+                    <div class="bunny idle" id="bunny">
+                        <div class="ear left"></div>
+                        <div class="ear right"></div>
+                        <div class="face">
+                            <div class="eye left"></div>
+                            <div class="eye right"></div>
+                            <div class="mouth"></div>
+                        </div>
+                    </div>
+
+                    <p>
+                        Pet <span class="bunnyName">Bunny</span> đang vui vẻ 🐰
+                    </p>
+                </div>
+
+
+            </section>
+
+            <footer class="pet-footer">
+                <p>
+                    <span class="bunnyName">Bunny</span> đang đợi bạn hoàn thành bài học tiếp theo để nhận Carrot 🥕
+                </p>
+            </footer>
+
+        </div>
+    </div>
+<!-- MODAL ĐẶT / ĐỔI TÊN -->
+<div id="nameModal" class="name-modal hidden">
+  <div class="name-box">
+    <button class="close-btn" onclick="closeNameModal()">✖</button>
+
+    <h2 id="modalTitle">🐰 Đặt tên cho Bunny</h2>
+    <input type="text" id="bunnyNameInput" placeholder="Ví dụ: Mido">
+    <button onclick="saveBunnyName()">Lưu tên ✨</button>
+  </div>
+</div>
+
+
+    <script src="home.js"></script>
+</body>
+
+</html>

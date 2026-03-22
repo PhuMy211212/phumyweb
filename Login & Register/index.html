@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrot Time - Login / Signup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Shape nền -->
+    <div class="bg-shape"></div>
+
+    <!-- Container chính -->
+    <div class="container">
+        <div class="bunny-image">
+            <div class="bunny-art-container">
+                <div class="bunny-art">
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
+
+                    <div class="arm left"></div>
+                    <div class="arm right"></div>
+
+                    <div class="face-details">
+                        <div class="eye left"></div>
+                        <div class="eye right"></div>
+                        <div class="nose"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sticker -->
+        <div class="study-tag">Study Mode 🐰</div>
+
+        <!-- Header -->
+        <div class="header-section">
+            <h1 class="welcome-text">Welcome to Carrot Time </h1>
+        </div>
+
+        <!-- SIGNUP FORM -->
+        <div id="login-form" class="form-card active">
+
+            <div class="input-group">
+                <input type="email" id="login-email" placeholder="Enter your email">
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="login-password" placeholder="Enter your password">
+            </div>
+
+            <div class="remember-me-group">
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me">Remember me</label>
+            </div>
+
+            <button class="btn btn-login" style="color: black !important; font-weight: bold;" onclick="goToHome()">
+                Login
+            </button>
+
+            <div class="divider"></div>
+
+            <button class="btn btn-signup-link" style="color: black !important;" onclick="showSignup()">
+                Sign up →
+            </button>
+        </div>
+        <!-- SIGNUP FORM -->
+        <div id="signup-form" class="form-card hidden">
+            <h2 class="form-title" style="text-align: center; color: #F88379;">Create Account</h2>
+
+            <div class="input-group">
+                <input type="text" id="signup-username" placeholder="Enter your username">
+            </div>
+
+            <div class="input-group">
+                <input type="email" id="signup-email" placeholder="Enter your email">
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="signup-password" placeholder="Enter your password">
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="signup-confirm" placeholder="Confirm your password">
+            </div>
+
+            <button type="button" class="btn btn-login" style="color: black !important; font-weight: bold;"
+                onclick="goToHome()">
+                Create & Login
+            </button>
+
+            <button type="button" class="btn btn-back-link"
+                style="color: black !important; background: none; border: none; cursor: pointer; width: 100%; margin-top: 10px;"
+                onclick="showLogin()">
+                ← Back to Login
+            </button>
+        </div>
+
+        <!-- Bunny image -->
+
+    </div>
+
+
+    <script src="script.js"></script>
+    <div style="position:fixed; bottom:20px; left:20px; z-index:9999;">
+        <div class="bunny-art-container">
+            <div class="bunny-art">
+                <div class="ear left"></div>
+                <div class="ear right"></div>
+
+                <div class="arm left"></div>
+                <div class="arm right"></div>
+
+                <div class="face-details">
+                    <div class="eye left"></div>
+                    <div class="eye right"></div>
+                    <div class="nose"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

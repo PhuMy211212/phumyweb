@@ -1,0 +1,474 @@
+/* --- Khai báo Font & Màu Sắc (Đồng bộ) --- */
+:root {
+    --primary-color: #F88379;  /* Màu hồng/đỏ cho viền đậm/chữ quan trọng */
+    --bg-color: #FFF9C4;       /* Nền VÀNG nhạt */
+    --nav-bg: #FFD1DC;         /* Màu Hồng Đào cho Navbar */
+    --card-bg: #FFFFFF;        /* Nền trắng cho các Card/Block */
+    --text-color: #333;
+    --divider-color: #FFB6B9;  /* Màu viền đứt quãng nhẹ */
+}
+
+/* Áp dụng font Chalkboard SE/Kalam cho toàn bộ */
+body, h1, h2, p, button, label {
+    font-family: "Chalkboard SE", "Patrick Hand", cursive;
+    color: var(--text-color);
+}
+
+
+body {
+    margin: 0;
+    padding-top: 70px; /* Bắt buộc để chừa chỗ cho Navbar cố định */
+    min-height: 100vh;
+    background-color: var(--bg-color); 
+}
+
+/* --- THANH ĐIỀU HƯỚNG (NAVBAR) --- */
+.navbar {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    background-color: var(--nav-bg); 
+    border-bottom: 3px solid var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow nhẹ */
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.nav-brand {
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none; /* Loại bỏ dấu chấm */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.nav-button {
+    font-size: 1.1em;
+    padding: 8px 15px;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+    font-weight: bold;
+}
+
+.nav-button:hover, .nav-button.active {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: var(--primary-color);
+}
+
+.logout-button {
+    color: var(--primary-color);
+    border: 2px dashed var(--primary-color);
+}
+.logout-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* --- CONTAINER CHÍNH --- */
+.pet-home-container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 35px;
+    background-color: white;        /* ⭐ CARD TRẮNG */
+    border-radius: 26px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+}
+
+
+.pet-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.welcome-title {
+    font-size: 2.8em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+/* --- KHU VỰC PET CHÍNH (GRID) --- */
+.pet-main-area {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+
+/* --- Pet Info Card --- */
+.pet-info-card {
+    background-color: var(--card-bg); 
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid var(--divider-color);
+}
+
+.pet-info-card h2 {
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px dashed var(--divider-color);
+    padding-bottom: 10px;
+}
+
+.status-bar {
+    margin-bottom: 15px;
+}
+
+.status-bar label {
+    display: block;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+progress {
+    width: 100%;
+    height: 25px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--primary-color);
+    /* Đảm bảo nền của progress bar là màu nền */
+    background-color: #F0F0F0; 
+}
+
+/* Màu sắc cho thanh progress */
+progress::-webkit-progress-value { background-color: #79CC79; }
+progress::-moz-progress-bar { background-color: #79CC79; }
+
+.pet-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* CANH GIỮA */
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.pet-actions .action-btn {
+  width: 80%;           /* nút đều nhau */
+  max-width: 220px;
+}
+
+
+.action-btn {
+  background: linear-gradient(135deg, #fbd3e9, #c2e9fb);
+  border: none;
+  border-radius: 16px;
+  padding: 10px 16px;
+  font-family: 'Chalkboard SE', cursive;
+  font-size: 15px;
+  cursor: pointer;
+  color: #5a4a42;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+}
+
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+}
+
+
+
+/* --- Pet Image Display --- */
+.pet-image-display {
+  min-height: 360px;          /* ⬅️ tăng chiều cao hộp */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* ⬅️ căn giữa theo chiều dọc */
+  align-items: center;
+  border: 2px solid #ff9aa2;
+  border-radius: 20px;
+  padding: 20px;
+  background: #fff;
+}
+
+.pet-image-display img {
+  width: 160px;
+  height: auto;
+  margin-bottom: 12px;
+}
+.action-btn:active {
+  transform: scale(0.96);
+}
+.action-btn.rename {
+  background: linear-gradient(135deg, #fff1c1, #ffd6a5);
+}
+
+
+
+/* --- Footer --- */
+.pet-footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px 0;
+}
+
+.pet-footer p {
+    font-size: 1.2em;
+    font-style: italic;
+    color: var(--primary-color);
+}
+
+/* --- Responsive --- */
+@media (max-width: 800px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+    body {
+        padding-top: 120px; 
+    }
+    .pet-main-area {
+        grid-template-columns: 1fr;
+    }
+    .pet-image-display {
+        order: -1; 
+    }
+    .pet-actions {
+        flex-direction: column;
+    }
+    .action-btn {
+        width: 100%;
+    }
+}
+/* ===== BACKGROUND SHAPES ===== */
+.bg-shape {
+    position: fixed;
+    z-index: 0;
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0.85;
+}
+
+/* Góc trên phải */
+.blob-1 {
+    width: 520px;
+    height: 520px;
+    top: -200px;
+    right: -200px;
+    background: linear-gradient(135deg, #ffb3b3, #ffe4b5);
+}
+
+/* Góc dưới trái */
+.blob-2 {
+    width: 480px;
+    height: 480px;
+    bottom: -220px;
+    left: -220px;
+    background: linear-gradient(135deg, #ffd1dc, #fff1a8);
+}
+
+/* Sau card */
+.blob-3 {
+    width: 360px;
+    height: 360px;
+    top: 45%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+    opacity: 0.5;
+}
+
+/* Giống layout login */
+.home-wrapper {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;   /* 👈 ĐÈ LÊN SHAPE */
+}
+
+.hidden {
+  display: none;
+}
+
+
+.name-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.action-btn.rename {
+  background-color: #ffe6ef;
+  border: 2px dashed #ff9bb3;
+  margin-top: 12px;
+}
+
+.action-btn.rename:hover {
+  background-color: #ffd6e5;
+}
+
+
+.name-modal.hidden {
+    display: none;
+}
+
+.name-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    font-family: 'Chalkboard SE', cursive;
+}
+
+.name-box h2 {
+    margin-bottom: 15px;
+}
+
+.name-box input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px solid #ffd1dc;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.name-box button {
+    background: #ffb703;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 14px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* ===== BUNNY CONTAINER ===== */
+.bunny {
+  position: relative;
+  width: 160px;
+  height: 180px;
+  margin: 0 auto;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ===== BODY ===== */
+.bunny::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 100px;
+  background: #ffe6ee; /* pastel hồng */
+  border-radius: 60px 60px 40px 40px;
+  border: 3px solid #f7b2c4;
+}
+
+/* ===== EARS ===== */
+.ear {
+  position: absolute;
+  width: 30px;
+  height: 70px;
+  background: #ffe6ee;
+  border-radius: 20px;
+  border: 3px solid #f7b2c4;
+  top: 0;
+}
+
+.ear.left {
+  left: 30px;
+  transform: rotate(-10deg);
+}
+
+.ear.right {
+  right: 30px;
+  transform: rotate(10deg);
+}
+
+.ear::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 7px;
+  width: 12px;
+  height: 45px;
+  background: #ffd1dc; /* hồng đào */
+  border-radius: 10px;
+}
+
+/* ===== FACE ===== */
+.face {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 60px;
+}
+
+/* ===== EYES ===== */
+.eye {
+  position: absolute;
+  width: 10px;
+  height: 12px;
+  background: #6b4f4f;
+  border-radius: 50%;
+  top: 15px;
+  animation: blink 4s infinite;
+}
+
+.eye.left {
+  left: 15px;
+}
+
+.eye.right {
+  right: 15px;
+}
+
+/* ===== MOUTH ===== */
+.mouth {
+  position: absolute;
+  width: 18px;
+  height: 10px;
+  border-bottom: 3px solid #e38fa9;
+  border-radius: 0 0 20px 20px;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes blink {
+  0%, 90%, 100% { height: 12px; }
+  92%, 98% { height: 2px; }
+}

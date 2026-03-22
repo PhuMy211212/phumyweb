@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress | Carrot Time</title>
+  <link rel="stylesheet" href="progress.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header class="app-header">
+  <a href="../Home/home.html" class="back-btn">⬅</a>
+  <h2>Carrot Time</h2>
+</header>
+
+<main class="page">
+  <h1>📈 Tiến độ học tập</h1>
+
+  <div class="main-content-grid">
+    
+    <div class="left-panel">
+      <div class="progress-box">
+        <h3>Chỉ số hiện tại</h3>
+        
+        <div class="chart-row">
+          <label>Checklist</label>
+          <progress id="checklist-progress" value="0" max="100"></progress>
+          <span id="checklist-percent">0%</span>
+        </div>
+
+        <div class="chart-row">
+          <label>Thời gian học</label>
+          <progress id="study-progress" value="0" max="100"></progress>
+          <span id="study-percent">0%</span>
+        </div>
+
+        <div class="chart-row">
+          <label>Nghỉ ngơi</label>
+          <progress id="rest-progress" value="0" max="100"></progress>
+          <span id="rest-percent">0%</span>
+        </div>
+      </div>
+
+      <div class="selector-box">
+        <label for="chartType">Thay đổi dạng biểu đồ:</label>
+        <select id="chartType" onchange="updateChartType()">
+          <option value="bar">Biểu đồ cột (Bar)</option>
+          <option value="line">Biểu đồ đường (Line)</option>
+          <option value="pie">Biểu đồ tròn (Pie)</option>
+          <option value="doughnut">Biểu đồ vòng (Doughnut)</option>
+          <option value="radar">Mạng nhện (Radar)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="chart-display-card">
+        <div class="chart-header">Phân tích chi tiết</div>
+        <div class="canvas-container">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="progress.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Checklist | Carrot Time</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- DÙNG CHUNG STYLE NAVBAR + FONT -->
+  <link rel="stylesheet" href="../Home/home_style.css">
+  <link rel="stylesheet" href="checklist.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ===== NAVBAR (GIỐNG HOME) ===== -->
+<nav class="navbar">
+  <div class="nav-brand">🐰 Study with <span class="bunnyName">Bunny</span></div>
+  <ul class="nav-links">
+    <li><button class="nav-button" onclick="location.href='../Home/home.html'">Nhà của Pet</button></li>
+    <li><button class="nav-button" onclick="location.href='../Timer/timer.html'">Bắt đầu học (Timer)</button></li>
+    <li><button class="nav-button active">Checklist nhiệm vụ</button></li>
+    <li><button class="nav-button" onclick="location.href='../Progress/progress.html'">Xem tiến độ</button></li>
+    <li><button class="nav-button logout-button">Đăng xuất</button></li>
+  </ul>
+</nav>
+
+<!-- BACKGROUND SHAPES -->
+<div class="bg-shape blob-1"></div>
+<div class="bg-shape blob-2"></div>
+
+<!-- ===== CONTENT ===== -->
+<div class="home-wrapper">
+  <div class="checklist-container">
+
+    <header class="pet-header">
+      <h1 class="welcome-title">Checklist nhiệm vụ hôm nay</h1>
+      <p class="subtitle">Hoàn thành để nhận 🥕 cho <span class="bunnyName">Bunny</span></p>
+    </header>
+
+    <!-- ADD TASK -->
+    <div class="add-task">
+      <input type="text" id="taskInput" placeholder="Ví dụ: Làm bài Toán trang 25">
+      <button onclick="addTask()">➕</button>
+    </div>
+
+    <!-- TASK LIST -->
+    <ul id="taskList" class="task-list">
+      <!-- Task mẫu -->
+      <li>
+        <label>
+          <input type="checkbox">
+          <span>Ôn từ vựng tiếng Anh</span>
+        </label>
+        <span class="reward">🥕 +1</span>
+      </li>
+    </ul>
+
+    <footer class="pet-footer">
+      <p>Hoàn thành checklist giúp <span class="bunnyName">Bunny</span> vui hơn </p>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+/* ===== BUNNY NAME ===== */
+document.addEventListener("DOMContentLoaded", () => {
+  const name = localStorage.getItem("bunnyName") || "Bunny";
+  document.querySelectorAll(".bunnyName").forEach(e => e.textContent = name);
+});
+
+/* ===== CHECKLIST ===== */
+function addTask() {
+  const input = document.getElementById("taskInput");
+  const text = input.value.trim();
+  if (!text) return;
+
+  const li = document.createElement("li");
+  li.innerHTML = `
+    <label>
+      <input type="checkbox">
+      <span>${text}</span>
+    </label>
+    <span class="reward">🥕 +1</span>
+  `;
+
+  document.getElementById("taskList").appendChild(li);
+  input.value = "";
+}
+</script>
+
+</body>
+</html>

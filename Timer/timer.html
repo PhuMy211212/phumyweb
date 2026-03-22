@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Timer | Carrot Time</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../Home/home_style.css">
+  <link rel="stylesheet" href="timer.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS BỔ SUNG CHO BỘ NÚT TĂNG GIẢM */
+    .timer-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .timer-display {
+      font-size: 80px;
+      font-weight: bold;
+      color: #f88379;
+      text-shadow: 2px 2px 0px #fff;
+      font-family: 'Patrick Hand', cursive;
+      min-width: 200px;
+      text-align: center;
+    }
+
+    .adjust-btn {
+      background: #f88379;
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 0px #d66a61;
+    }
+
+    .adjust-btn:hover {
+      transform: translateY(-2px);
+      background: #ffb6b6;
+      box-shadow: 0 6px 0px #d66a61;
+    }
+
+    .adjust-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 0px 0px #d66a61;
+    }
+
+    /* Hiệu ứng khi đang chạy thì ẩn nút chỉnh đi hoặc làm mờ */
+    .timer-wrapper.running .adjust-btn {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="nav-brand">🐰 Study with <span class="bunnyName">Bunny</span></div>
+  <ul class="nav-links">
+    <li><button class="nav-button" onclick="location.href='../Home/home.html'">Nhà của Pet</button></li>
+    <li><button class="nav-button active">Bắt đầu học (Timer)</button></li>
+    <li><button class="nav-button" onclick="location.href='../Checklist/checklist.html'">Checklist nhiệm vụ</button></li>
+    <li><button class="nav-button" onclick="location.href='../Progress/progress.html'">Xem tiến độ</button></li>
+    <li><button class="nav-button logout-button">Đăng xuất</button></li>
+  </ul>
+</nav>
+
+<div class="bg-shape blob-1"></div>
+<div class="bg-shape blob-2"></div>
+
+<div class="home-wrapper">
+  <div class="timer-container">
+
+    <header class="pet-header">
+      <h1 class="welcome-title">⏰ Thời gian tập trung</h1>
+      <p class="subtitle">Học cùng <span class="bunnyName">Bunny</span> nhé 🐰</p>
+    </header>
+
+    <div class="timer-wrapper" id="timerWrapper">
+      <button class="adjust-btn" onclick="adjustTime(-1)">−</button>
+      
+      <div class="timer-display" id="timer">
+        25:00
+      </div>
+
+      <button class="adjust-btn" onclick="adjustTime(1)">+</button>
+    </div>
+
+    <div class="timer-controls">
+      <button class="control-btn start" onclick="startTimer()">▶ Bắt đầu</button>
+      <button class="control-btn pause" onclick="pauseTimer()">⏸ Tạm dừng</button>
+      <button class="control-btn reset" onclick="resetTimer()">⟲ Reset</button>
+    </div>
+<footer class="pet-footer">
+  <p>Hoàn thành phiên học để nhận 🥕 Carrot cho <span class="bunnyName">Bunny</span></p>
+</footer>
+
+  </div>
+</div>
+
+<script src="timer.js"></script>
+</body>
+</html>
